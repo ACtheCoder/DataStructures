@@ -60,6 +60,15 @@ bool bst_int_empty(const bst_int* const tree)
 /*
  Pre: tree is initialized
 
+ This function clears the tree
+ */
+void bst_int_clear(bst_int* const tree)
+{
+}
+
+/*
+ Pre: tree is initialized
+
  This function returns the greatest value in the tree. If no values are
  present, -9223372036854775808 is returned.
  */
@@ -104,9 +113,5 @@ void bst_int_print_preorder(const bst_int* const tree)
  to standard output.
  */
 void bst_int_print_postorder(const bst_int* const tree)
-{
-}
-
-int main(int argc, char** argv)
 {
 }

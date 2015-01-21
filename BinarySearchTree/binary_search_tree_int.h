@@ -2,7 +2,8 @@
 #define BINARY_SEARCH_TREE_H
 #include <string.h>
 #include <stdio.h>
-#include <int.h>
+#include <stdint.h>
+#include <stdbool.h>
 
 // This struct will hold values between -9223372036854775807 and
 // 9223372036854775808 with the value -9223372036854775808 (INT64_MIN)
@@ -11,8 +12,8 @@
 struct binary_search_tree_int
 {
     int64_t value;
-    bst_int* left;
-    bst_int* right;
+    struct binary_search_tree_int* left;
+    struct binary_search_tree_int* right;
 };
 
 typedef struct binary_search_tree_int bst_int;
@@ -62,6 +63,13 @@ bool bst_int_contains(const bst_int* const tree, int64_t value);
  returned; false is returned otherwise.
  */
 bool bst_int_empty(const bst_int* const tree);
+
+/*
+ Pre: tree is initialized
+
+ This function clears the tree
+ */
+void bst_int_clear(bst_int* const tree);
 
 /*
  Pre: tree is initialized
