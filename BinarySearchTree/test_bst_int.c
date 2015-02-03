@@ -13,6 +13,56 @@ void test_init(bst_int* const tree)
 
 void test_add(bst_int* const tree)
 {
+    bool ok = true;
+    //adding to an empty tree
+    bst_add(tree, 500);
+    if(tree->value != 500 || tree->right != NULL || tree->left != NULL)
+    {
+        abort();
+    }
+    //test left
+    bst_add(tree, 200);
+    if(tree->value != 500 || tree->right->value != NULL || tree->left->value != 200)
+    {
+        abort();
+    }
+    //test left left
+    bst_add(tree, 100);
+    if(tree->left->left->value != 100)
+    {
+        abort();
+    }
+    //test left right
+    bst_add(tree, 300);
+    if(tree->left->right->value != 300)
+    {
+        abort();
+    }
+    //test right
+    bst_add(tree, 700);
+    if(tree->value != 500 || tree->left->value != 200 || tree->right->value != 700)
+    {
+        abort();
+    }
+    //test right left
+    bst_add(tree, 600);
+    if(tree->right->left->value != 600)
+    {
+        abort();
+    }
+    //test right right
+    bst_add(tree, 800);
+    if(tree->right->right->value != 800)
+    {
+        abort();
+    }
+
+    //test equal
+    bst_add(tree, 300);
+    if()
+    {
+        abort();
+    }
     printf("You have passed the add test\n");
 }
 
